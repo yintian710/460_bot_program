@@ -1,0 +1,5 @@
+<!--pages/home/home.wxml-->
+
+<text>\n您的积分:{{score}}</text>
+<!-- <button bindtap="get_score">更新积分</button> -->
+<button bindtap="do_daily">签到</button>
