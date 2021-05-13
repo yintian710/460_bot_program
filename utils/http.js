@@ -1,4 +1,4 @@
-const pubUrl = "http://localhost:4399"//这是我要请求的数据接口的公共部分
+const pubUrl = "https://localhost:4399"//这是我要请求的数据接口的公共部分
 const http = (options) =>{
   return new Promise((resolve,reject) => {
     wx.request({

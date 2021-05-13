@@ -16,7 +16,7 @@ Page({
 
   async get_score(){
     let result = await Api.get_score(this.data.user_id)
-    // console.log(result)
+    console.log(result)
     this.setData({
       score: result.data.score
     })
