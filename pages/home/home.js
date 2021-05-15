@@ -10,19 +10,20 @@ Page({
     user_id: 1327960105,
     openid: ''
   },
+
   async get_score(){
-    let result = await Api.get_score(this.data.user_id)
+    let result = await Api.get_score(this.data.user_id);
     // console.log(result)
     this.setData({
       score: result.data.score
-    })
+    });
     return result
   },
 
   async do_daily(){
-    let result = await Api.daily(this.data.user_id)
-    let msg = result.data.message.public
-    await this.get_score()
+    let result = await Api.daily(this.data.user_id);
+    let msg = result.data.message.public;
+    await this.get_score();
     wx.showToast({
       title: msg,
       icon: 'none',
@@ -30,15 +31,21 @@ Page({
     })
   },
 
+  async go_card(){
+    wx.navigateTo({
+      url: '/pages/card/card',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.get_score()
+    this.get_score();
     this.setData({
       openid: wx.getStorageSync('openid'),
       user_id: 1327960105
-    })
+    });
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true
@@ -78,7 +85,7 @@ Page({
     wx.getUserProfile({
       desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
-        console.log(res)
+        console.log(res);
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true
@@ -134,4 +141,4 @@ Page({
   onShareAppMessage: function () {
 
   }
-})
+});

@@ -1,1 +1,10 @@
 /* pages/card/card.wxss */
+
+.imagesize{
+  display:flex;                  
+  justify-content: center;         
+ }
+ .in-card { 
+   width:250px;
+   height:320px;
+   }

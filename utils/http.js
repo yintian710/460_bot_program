@@ -1,5 +1,7 @@
-const pubUrl = "https://localhost:4399"//这是我要请求的数据接口的公共部分
+// const pubUrl = "https://wx.yintian.vip:4399"
+const pubUrl = "https://localhost:4399"
 const http = (options) =>{
+  // console.log(options)
   return new Promise((resolve,reject) => {
     wx.request({
       url: pubUrl+options.url,

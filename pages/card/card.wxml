@@ -3,4 +3,7 @@
 <text>\n{{cardList}}</text>
 <button bindtap="search_card">查询卡牌</button>
 <button bindtap="draw_card">抽卡</button>
-<image src="{{base64ImgUrl}}"></image>
+
+<view class='imagesize'>
+  <image class="in-card" src="{{Base64ImageUrl}}"></image>
+</view>

@@ -1,6 +1,7 @@
 // index.js
 // 获取应用实例
-const app = getApp()
+import Api from '../../utils/api'
+const app = getApp();
 
 Page({
   data: {
@@ -11,39 +12,29 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     canIUseGetUserProfile: false,
-        openid:'',
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
+    openid:'',
+    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'),
+    login_codes:''
+  },
+  async get_openid(){
+    let result = await Api.getOPENID(this.data.login_codes)
+    console.log(result.data)
+    this.setData({
+      openid: result.openid
+    })
   },
   // 事件处理函数
     getOpenIdTap:function(){
     var that=this;
     wx.login({
       success:function(res){
-        // console.log(res.code)
-        wx.request({
-            //获取openid接口
-          url: 'https://api.weixin.qq.com/sns/jscode2session',
-          data:{
-            appid:app.data.APP_ID,
-            secret:app.data.APP_SECRET,
-            js_code:res.code,
-            grant_type:'authorization_code'
-          },
-          method:'GET',
-          success:function(res){
-            // console.log(res.data)
-            app.data.OPEN_ID = res.data.openid;//获取到的openid
-            app.data.SESSION_KEY = res.data.session_key;//获取到session_key
             that.setData({
-              openid: res.data.openid,
-              session_key: res.data.session_key.substr(0, 8) + '********' + res.data.session_key.substr(res.data.session_key.length - 6, res.data.session_key.length)
+              login_codes: res.code
             })
-            // console.log(that.data.openid)
+            that.get_openid()
             wx.setStorageSync('openid', that.data.openid)
           }
-        })
-      }
-    })
+        }),
     wx.navigateTo({
       url: '/pages/home/home?openid='+this.data.openid
     })
