@@ -18,8 +18,6 @@ App({
       success (res) {
         if (res.code) {
           //发起网络请求
-
-
         } else {
           console.log('登录失败！' + res.errMsg)
         }

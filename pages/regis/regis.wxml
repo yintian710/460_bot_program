@@ -1,0 +1,18 @@
+<!--pages/regis/regis.wxml-->
+<text>pages/regis/regis.wxml</text>
+
+<view class="page-section">
+    <view class="weui-cells__title">请输入需要绑定的QQ号</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input" auto-focus maxlength="10" bindinput="bindKeyQQ" type="number"placeholder="请输入需要绑定的QQ号"/>
+      </view>
+    </view>
+    <view class="weui-cells__title">请输入验证码</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input" auto-focus maxlength="10" bindinput="bindKeyCode" type="number"placeholder="验证码"/>
+      </view>
+    </view>
+    <button bindtap="verify">确认绑定</button>
+  </view>
