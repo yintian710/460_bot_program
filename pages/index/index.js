@@ -55,14 +55,17 @@ Page({
     // 事件处理函数
     async getOpenIdTap() {
 
-        let user_id = wx.getStorageSync('user_id');
-        console.log(user_id)
-        if (user_id) {
-            wx.navigateTo({
-                url: '/pages/home/home?user_id=' + user_id
-            });
-            return
-        }
+        // let user_id = wx.getStorageSync('user_id');
+        wx.getStorage({
+            key: 'user_id',
+            success(res) {
+                console.log(res.data);
+                show('登陆成功');
+                wx.navigateTo({
+                    url: '/pages/home/home?user_id=' + res.data
+                });
+            }
+        });
         let that = this;
         wx.login({
             success: function (res) {

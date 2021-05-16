@@ -1,5 +1,5 @@
-// const pubUrl = "https://wx.yintian.vip:4399"
-const pubUrl = "https://localhost:4399"
+const pubUrl = "https://wxbot.yintian.vip:4399";
+// const pubUrl = "https://localhost:4399"
 const http = (options) =>{
   // console.log(options)
   return new Promise((resolve,reject) => {

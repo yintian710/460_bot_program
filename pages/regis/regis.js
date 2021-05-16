@@ -25,7 +25,7 @@ Page({
         console.log(e.detail.value)
     },
     async verify(){
-        let result = await Api.verify(this.data.QQ, this.data.verify_code, this.data.openid)
+        let result = await Api.verify(this.data.QQ, this.data.verify_code, this.data.openid);
         console.log(result)
     },
 
