@@ -37,7 +37,7 @@ Page({
             return
         }
         let user_id = result.data.user_id;
-        show('成功');
+        show('登陆成功');
         if (user_id) {
             wx.setStorageSync('user_id', result.data.user_id);
             this.setData({

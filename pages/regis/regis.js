@@ -1,5 +1,6 @@
 // pages/regis/regis.js
 import Api from '../../utils/api'
+import show from '../../utils/print'
 Page({
 
     /**
@@ -27,6 +28,7 @@ Page({
     async verify(){
         let result = await Api.verify(this.data.QQ, this.data.verify_code, this.data.openid);
         console.log(result)
+        show('绑定成功')
     },
 
     /**

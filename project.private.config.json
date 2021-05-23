@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -20,6 +21,18 @@
             "enabled": true,
             "pages": []
           }
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/regis/regis",
+          "pathName": "pages/regis/regis",
+          "query": "",
+          "scene": null
         }
       ]
     }
