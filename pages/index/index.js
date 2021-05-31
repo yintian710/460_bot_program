@@ -34,6 +34,7 @@ Page({
         console.log(result);
         console.log(111);
         if (result.code) {
+            show('登陆失败');
             return
         }
         let user_id = result.data.user_id;

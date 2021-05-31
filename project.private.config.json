@@ -16,11 +16,7 @@
           "name": "pages/card/card",
           "pathName": "pages/card/card",
           "query": "",
-          "scene": null,
-          "partialCompile": {
-            "enabled": true,
-            "pages": []
-          }
+          "scene": null
         },
         {
           "name": "pages/index/index",
@@ -32,6 +28,11 @@
           "name": "pages/regis/regis",
           "pathName": "pages/regis/regis",
           "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/home/home",
+          "pathName": "pages/home/home",
           "scene": null
         }
       ]

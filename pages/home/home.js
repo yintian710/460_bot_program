@@ -1,4 +1,5 @@
 import Api from "../../utils/api"
+import show from "../../utils/print";
 // pages/home/home.js
 Page({
 
@@ -39,6 +40,7 @@ Page({
     async delete_user() {
         Api.deleteUserId(this.data.user_id);
         wx.removeStorageSync('user_id');
+        show('删除成功');
         wx.navigateBack({
             delta: 10
         })

@@ -1,6 +1,7 @@
 // pages/regis/regis.js
 import Api from '../../utils/api'
 import show from '../../utils/print'
+
 Page({
 
     /**
@@ -10,25 +11,36 @@ Page({
         verify_code: '',
         openid: '',
         user_id: '',
-        QQ:''
+        QQ: ''
     },
     bindKeyQQ: function (e) {
         this.setData({
             QQ: e.detail.value
-        })
-        console.log(e.detail.value)
+        });
+        // console.log(e.detail.value)
     },
 
     bindKeyCode: function (e) {
         this.setData({
             verify_code: e.detail.value
-        })
-        console.log(e.detail.value)
+        });
+        // console.log(e.detail.value)
     },
-    async verify(){
+    async verify() {
         let result = await Api.verify(this.data.QQ, this.data.verify_code, this.data.openid);
-        console.log(result)
-        show('绑定成功')
+        console.log(result);
+        if (result.code){
+            show('绑定失败');
+            return
+        }
+        show('绑定成功');
+        wx.setStorageSync('user_id', result.data.user_id);
+        this.setData({
+            user_id: result.data.user_id
+        });
+        wx.navigateTo({
+            url: '/pages/home/home?user_id=' + user_id
+        })
     },
 
     /**
@@ -89,4 +101,4 @@ Page({
     onShareAppMessage: function () {
 
     }
-})
+});

@@ -1,6 +1,6 @@
 <!--pages/card/card.wxml-->
 <text>\n您的积分:{{score}}</text>
-<text>\n{{cardList}}</text>
+<text>\n卡牌数量:{{cardList}}</text>
 <button bindtap="search_card">查询卡牌</button>
 <button bindtap="draw_card">抽卡</button>
 

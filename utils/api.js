@@ -5,7 +5,7 @@ const app = getApp();
 
 const getOPENID = (code) => {
   return _http({
-    url:'/get_open_id',
+    url:'/wx/get_open_id',
     data:{
       appid:app.data.APP_ID,
       secret:app.data.APP_SECRET,
@@ -16,7 +16,7 @@ const getOPENID = (code) => {
 };
 const get_user_id=(openid)=>{
   return http({
-    url:'/is_wx_regis',
+    url:'/wx/is_wx_regis',
     data:{
       openid: openid
     }
@@ -26,7 +26,7 @@ const get_user_id=(openid)=>{
 const get_score = (user_id) => { 
   console.log(user_id + '执行了 获取积分');
   return http({ 
-    url:'/score', 
+    url:'/score/search',
     data:{ 
       user_id:user_id 
     } 
@@ -73,7 +73,7 @@ const GetCardData = (user_id, card_name) => {
 };
 const verify = (user_id, verify_code, openid) =>{
     return http({
-      url: '/wx_regis',
+      url: '/wx/wx_regis',
       data:{
         user_id:user_id,
         verify_code: verify_code,
@@ -84,7 +84,7 @@ const verify = (user_id, verify_code, openid) =>{
 };
 const delete_wx_regis = (user_id) => {
     return http({
-      url: '/delete_wx_regis',
+      url: '/wx/delete_wx_regis',
       data:{
         user_id:user_id
       }
